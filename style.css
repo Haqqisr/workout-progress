@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f;
+    color: #ffffff;
+}
+
+header {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #111;
+    color: white;
+}
+/* Container tengah */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+/* Card modern */
+.card {
+    background: #1a1a1a;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,255,136,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Navbar lebih modern */
+nav {
+    background-color: #1a1a1a;
+}
+
+nav ul li a:hover {
+    color: #00ff88;
+}
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background-color: #333;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 87%; /* 61 / 70 ≈ 87% */
+    background: linear-gradient(90deg, #00ff88, #00cc66);
+    border-radius: 20px;
+}
+/* Layout 2 Kolom */
+.grid-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.grid-layout > div {
+    flex: 1;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .grid-layout {
+        flex-direction: column;
+    }
+}
+/* Animasi masuk */
+.card {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Statistik highlight */
+.card h2 {
+    border-left: 5px solid #00ff88;
+    padding-left: 10px;
+}
+/* Navbar Layout */
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Style link */
+.nav-link {
+    color: white;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+.nav-link:hover {
+    background-color: #00ff88;
+    color: black;
+}
+/* Active page */
+.active {
+    background-color: #00ff88;
+    color: black;
+}
+/* Galeri Grid */
+.gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 250px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+form input, form button {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 6px;
+    border: none;
+}
+
+form button {
+    background-color: #00ff88;
+    cursor: pointer;
+}

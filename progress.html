@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress - Haqqi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Detail Progress</h1>
+    <p>Monitoring kenaikan berat & performa</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="log.html" class="nav-link">Log</a></li>
+        <li><a href="progress.html" class="nav-link active">Progress</a></li>
+        <li><a href="galeri.html" class="nav-link">Gallery</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+
+    <section class="card">
+        <h2>Riwayat Berat Badan</h2>
+        <canvas id="weightChart"></canvas>
+        <ul>
+            <li>Januari: 61 kg</li>
+            <li>Februari: 62 kg</li>
+            <li>Maret: 63 kg</li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>Target Tahunan</h2>
+        <p>Target akhir tahun: 70 kg dengan massa otot meningkat.</p>
+        <form id="weightForm">
+        <input type="text" id="month" placeholder="Bulan (contoh: Apr)" required>
+        <input type="number" id="weight" placeholder="Berat (kg)" required>
+        <button type="submit">Simpan</button>
+    </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Haqqi Workout Progress</p>
+</footer>
+<script>
+let labels = JSON.parse(localStorage.getItem('labels')) || ['Jan','Feb','Mar'];
+let weights = JSON.parse(localStorage.getItem('weights')) || [61,62,63];
+
+const ctx = document.getElementById('weightChart');
+
+const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Berat Badan (kg)',
+            data: weights,
+            borderColor: '#00ff88',
+            backgroundColor: 'rgba(0,255,136,0.2)',
+            tension: 0.3
+        }]
+    }
+});
+
+document.getElementById('weightForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const month = document.getElementById('month').value;
+    const weight = document.getElementById('weight').value;
+
+    labels.push(month);
+    weights.push(weight);
+
+    localStorage.setItem('labels', JSON.stringify(labels));
+    localStorage.setItem('weights', JSON.stringify(weights));
+
+    chart.update();
+    this.reset();
+});
+</script>
+</body>
+</html>
